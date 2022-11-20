@@ -31,6 +31,16 @@ const jsWebsite = () => {
       const mainMenu = document.createElement('div');
       const ofertas = document.createElement('div');
       const footer = document.createElement('footer');
+      const categoriesContainer = document.createElement('div'); 
+      const categories = document.createElement('ul');
+      const categoriesItem1 = document.createElement('li');
+      const categoriesItem2 = document.createElement('li');
+      const categoriesItem3 = document.createElement('li');
+      const categoriesItem4 = document.createElement('li');
+      const categoriesItem5 = document.createElement('li');
+      const categoriesItem6 = document.createElement('li');
+      const categoriesItem7 = document.createElement('li');
+
 
 
   // testing stuff with console.log
@@ -65,6 +75,9 @@ const jsWebsite = () => {
     mainContent.append(mainMenu);
     mainContent.append(ofertas);
     mainContent.append(footer);
+    sideMenu.append(categoriesContainer);
+    categoriesContainer.append(categories);
+    categories.append(categoriesItem1, categoriesItem2, categoriesItem3, categoriesItem4, categoriesItem5, categoriesItem6, categoriesItem7);
 
   }
   appendElements();
@@ -79,6 +92,15 @@ const jsWebsite = () => {
     // header
     searchIcon.innerHTML = 'search';
     h1.innerHTML = 'Welcome to our market!';
+    
+    // sideMenu list elements 
+    categoriesItem1.innerHTML = 'Vegetables';
+    categoriesItem2.innerHTML = 'Fruits';
+    categoriesItem3.innerHTML = 'Bakery';
+    categoriesItem4.innerHTML = 'Meats';
+    categoriesItem5.innerHTML = 'Nuts & Spices';
+    categoriesItem6.innerHTML = 'Dairy';
+    categoriesItem7.innerHTML = 'Wine';
 
   }
   writeHtml();
@@ -151,8 +173,10 @@ const jsWebsite = () => {
       mainContent.style.margin = 'auto';
       mainContent.style.height = '700px';
       sideMenu.style.gridArea = 'sideMenu';
-      sideMenu.style.backgroundColor = 'blue';
       sideMenu.style.marginRight = '10px';
+      sideMenu.style.display = 'flex';
+      sideMenu.style.justifyContent = 'flex-start';
+      sideMenu.style.alignItems = 'center';
       mainMenu.style.gridArea = 'mainMenu';
       mainMenu.style.backgroundColor = 'orange';
       mainMenu.style.marginBottom = '10px';
@@ -161,8 +185,38 @@ const jsWebsite = () => {
       ofertas.style.marginBottom = '10px';
       footer.style.gridArea = 'footer';
       footer.style.backgroundColor = 'seaGreen';
+      categoriesContainer.style.height = '100%';
+      categoriesContainer.style.display = 'flex';
+      categoriesContainer.style.flexDirection = 'column';
+      categoriesContainer.style.justifyContent = 'center';
+      categoriesContainer.style.alignItems = 'center';
+      categories.style.padding = '0';
+      categories.style.display = 'flex';
+      categories.style.flexDirection = 'column';
+      categories.style.justifyContent = 'space-around';
+      categories.style.height = '80%';
+
+      // style the list elements in side Menu
+      let liArray = document.querySelectorAll('li');
 
 
+      liArray.forEach(li => {
+        li.style.listStyle = 'none';
+        li.style.color = 'seaGreen';
+        li.style.fontWeight = '500';
+        li.style.cursor = 'pointer';
+
+        li.addEventListener('mouseover', () => {
+          li.style.color = 'darkGreen';
+          li.style.textDecoration = 'underline';
+          li.style.transition = 'color .3s ease-in-out';
+        });
+
+        li.addEventListener('mouseout', () => {
+          li.style.color = 'seaGreen';
+          li.style.textDecoration = 'none';
+        });
+      });
   }
   styles();
 

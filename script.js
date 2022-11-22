@@ -111,13 +111,21 @@ const jsWebsite = () => {
     userLogin.innerHTML = 'Login';
     
     // sideMenu list elements 
-    categoriesItem1.innerHTML = 'Vegetables';
-    categoriesItem2.innerHTML = 'Fruits';
-    categoriesItem3.innerHTML = 'Bakery';
-    categoriesItem4.innerHTML = 'Meats';
-    categoriesItem5.innerHTML = 'Nuts & Spices';
-    categoriesItem6.innerHTML = 'Dairy';
-    categoriesItem7.innerHTML = 'Wine';
+    // categoriesItem1.innerHTML = 'Vegetables';
+    // categoriesItem2.innerHTML = 'Fruits';
+    // categoriesItem3.innerHTML = 'Bakery';
+    // categoriesItem4.innerHTML = 'Meats';
+    // categoriesItem5.innerHTML = 'Nuts & Spices';
+    // categoriesItem6.innerHTML = 'Dairy';
+    // categoriesItem7.innerHTML = 'Wine';
+
+    
+    const categoriesItemsLabels = ['vegetables', 'fruits', 'bakery', 'meats', 'wine'];
+    const categoriesItems = [categoriesItem1, categoriesItem2, categoriesItem3, categoriesItem4, categoriesItem5];
+
+    categoriesItems.forEach((item, index) => {
+      item.innerHTML = categoriesItemsLabels[index];
+    });
 
   }
   writeHtml();

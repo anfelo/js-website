@@ -65,6 +65,58 @@ const jsWebsite = () => {
   // mainMenu
   const mainMenu = document.createElement("div");
 
+  // function for the creation of divs
+
+  // div = 1
+  // img = 2
+  // p = 3
+  // h2 = 4
+
+  const elementCreator = (a) => {
+    if (a === 1) {
+      let element = document.createElement("div");
+      return element;
+    } else if (a === 2) {
+      let element = document.createElement("img");
+      return element;
+    } else if (a === 3) {
+      let element = document.createElement("p");
+      return element;
+    } else if (a === 4) {
+      let element = document.createElement("h2");
+      return element;
+    }
+  };
+
+  const elementContainer1 = elementCreator(1);
+  const elementContainer2 = elementCreator(1);
+  const elementContainer3 = elementCreator(1);
+  const elementContainer4 = elementCreator(1);
+  const elementContainer5 = elementCreator(1);
+  const elementContainer6 = elementCreator(1);
+  const elementContainer7 = elementCreator(1);
+  const elementContainer8 = elementCreator(1);
+
+  const imgContainer1 = elementCreator(1);
+  const imgContainer2 = elementCreator(1);
+  const imgContainer3 = elementCreator(1);
+  const imgContainer4 = elementCreator(1);
+  const imgContainer5 = elementCreator(1);
+  const imgContainer6 = elementCreator(1);
+  const imgContainer7 = elementCreator(1);
+  const imgContainer8 = elementCreator(1);
+
+  const img1 = elementCreator(2);
+  const img2 = elementCreator(2);
+  const img3 = elementCreator(2);
+  const img4 = elementCreator(2);
+  const img5 = elementCreator(2);
+  const img6 = elementCreator(2);
+  const img7 = elementCreator(2);
+  const img8 = elementCreator(2);
+
+  const heading = elementCreator(4);
+
   // ofertas
   const ofertas = document.createElement("div");
   const ofertasInfoContainer1 = document.createElement("div");
@@ -114,9 +166,7 @@ const jsWebsite = () => {
   // head function
   const headElement = () => {
     // append elements
-    head.append(searchLink);
-    head.append(style);
-    head.append(styleLink);
+    head.append(searchLink, style, styleLink);
 
     // innerHTML
     style.innerHTML = `@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');`;
@@ -133,9 +183,7 @@ const jsWebsite = () => {
   // body function
   const bodyElement = () => {
     // append elements
-    body.append(overlay);
-    body.append(header);
-    body.append(main);
+    body.append(overlay, header, main);
 
     // add styles
     body.style.margin = "0";
@@ -159,26 +207,19 @@ const jsWebsite = () => {
   // header function
   const headerElement = () => {
     // append elements
-    header.append(logoContainer);
-    header.append(headerRight);
-    header.append(userMenuContainer);
-    headerRight.append(searchContainer);
-    headerRight.append(userContainer);
+    header.append(logoContainer, headerRight, userMenuContainer);
+    headerRight.append(searchContainer, userContainer);
     searchContainer.append(search);
     logoContainer.append(logo);
     searchContainer.append(searchIcon);
     userContainer.append(userIcon);
-    userMenuContainer.append(userMenuArrow);
-    userMenuContainer.append(userMenuOptions);
+    userMenuContainer.append(userMenuArrow, userMenuOptions);
     userMenuOptions.append(userLoginContainer);
-    userLoginContainer.append(userLoginIcon);
-    userLoginContainer.append(userLogin);
+    userLoginContainer.append(userLoginIcon, userLogin);
     userMenuOptions.append(userSettingsContainer);
-    userSettingsContainer.append(userSettingsIcon);
-    userSettingsContainer.append(userSettings);
+    userSettingsContainer.append(userSettingsIcon, userSettings);
     userMenuOptions.append(userCartContainer);
-    userCartContainer.append(userCartIcon);
-    userCartContainer.append(userCart);
+    userCartContainer.append(userCartIcon, userCart);
 
     // innerHTML
     searchIcon.innerHTML = "search";
@@ -377,7 +418,7 @@ const jsWebsite = () => {
     mainContent.style.gridTemplateAreas = `'sideMenu mainMenu mainMenu' 'sideMenu mainMenu mainMenu' 'sideMenu ofertas ofertas' 'sideMenu footer footer'`;
     mainContent.style.width = "90%";
     mainContent.style.margin = "auto";
-    mainContent.style.height = "700px";
+    mainContent.style.height = "900px";
   };
   mainElement();
 
@@ -493,10 +534,122 @@ const jsWebsite = () => {
 
   // mainMenu function
   const mainMenuElement = () => {
+    // append elements
+    mainMenu.append(
+      heading,
+      elementContainer1,
+      elementContainer2,
+      elementContainer3,
+      elementContainer4,
+      elementContainer5,
+      elementContainer6,
+      elementContainer7,
+      elementContainer8
+    );
+
+    // innerHTML
+    heading.innerHTML = "Most sold items";
+
     // add styles
     mainMenu.style.gridArea = "mainMenu";
-    mainMenu.style.backgroundColor = "orange";
+    mainMenu.style.position = "relative";
     mainMenu.style.marginBottom = "10px";
+    mainMenu.style.display = "grid";
+    mainMenu.style.gridTemplateColumns = "repeat(4, 1fr)";
+    mainMenu.style.gridTemplateRows = "auto";
+    mainMenu.style.gap = "10px";
+    mainMenu.style.paddingTop = "40px";
+    mainMenu.style.marginBottom = "50px";
+
+    heading.style.position = "absolute";
+    heading.style.cursor = "pointer";
+    heading.style.top = "-10px";
+    heading.style.left = "-15px";
+    heading.style.backgroundColor = "brown";
+    heading.style.color = "white";
+    heading.style.padding = "10px";
+    heading.style.borderRadius = "0 100vw 100vw 0";
+    heading.style.zIndex = "0";
+
+    heading.addEventListener("mouseover", () => {
+      heading.style.transform = "scale(1.1)";
+      heading.style.top = "-30px";
+      heading.style.transition = "all .3s ease-in-out";
+    });
+
+    heading.addEventListener("mouseout", () => {
+      heading.style.transform = "scale(1)";
+      heading.style.top = "0";
+    });
+
+    elementContainer1.style.backgroundImage = "url(images/apple.jpg)";
+    elementContainer1.style.backgroundPosition = "center";
+    elementContainer1.style.backgroundSize = "cover";
+    elementContainer2.style.backgroundImage = "url(images/bread.jpg)";
+    elementContainer2.style.backgroundPosition = "center";
+    elementContainer2.style.backgroundSize = "cover";
+    elementContainer3.style.backgroundImage = "url(images/cheesse.jpg)";
+    elementContainer3.style.backgroundPosition = "center";
+    elementContainer3.style.backgroundSize = "cover";
+    elementContainer4.style.backgroundImage = "url(images/wine1.jpg)";
+    elementContainer4.style.backgroundPosition = "center";
+    elementContainer4.style.backgroundSize = "cover";
+    elementContainer5.style.backgroundImage = "url(images/coffee1.jpg)";
+    elementContainer5.style.backgroundPosition = "center";
+    elementContainer5.style.backgroundSize = "cover";
+    elementContainer6.style.backgroundImage = "url(images/tomatoes.jpg)";
+    elementContainer6.style.backgroundPosition = "center";
+    elementContainer6.style.backgroundSize = "cover";
+    elementContainer7.style.backgroundImage = "url(images/pork.jpg)";
+    elementContainer7.style.backgroundPosition = "center";
+    elementContainer7.style.backgroundSize = "cover";
+    elementContainer8.style.backgroundImage = "url(images/potatoes.jpg)";
+    elementContainer8.style.backgroundPosition = "center";
+    elementContainer8.style.backgroundSize = "cover";
+
+    let elementArray = [
+      elementContainer1,
+      elementContainer2,
+      elementContainer3,
+      elementContainer4,
+      elementContainer5,
+      elementContainer6,
+      elementContainer7,
+      elementContainer7,
+      elementContainer8,
+    ];
+
+    elementArray.forEach((element) => {
+      element.style.borderRadius = "5px";
+      element.style.boxShadow = "0 1px 6px 2px rgba(0,0,0,.1)";
+      element.style.cursor = "pointer";
+      element.style.zIndex = "1";
+
+      element.addEventListener("mouseover", () => {
+        element.style.transform = "scale(1.1)";
+        element.style.transition = "transform .3s ease-in-out";
+        element.style.zIndex = "999";
+      });
+
+      element.addEventListener("mouseout", () => {
+        element.style.transform = "scale(1)";
+        element.style.zIndex = "initial";
+      });
+    });
+
+    const foodImages = mainMenu.querySelectorAll("img");
+    foodImages.forEach((img) => {
+      img.style.maxWidth = "100%";
+      img.style.height = "auto";
+    });
+
+    const foodDivs = mainMenu.querySelectorAll("div");
+    foodDivs.forEach((div) => {
+      div.style.overflow = "hidden";
+      div.style.display = "flex";
+      div.style.justifyContent = "center";
+      div.style.alignItems = "center";
+    });
   };
   mainMenuElement();
 
@@ -588,6 +741,7 @@ const jsWebsite = () => {
     });
     console.log(foodImages);
 
+    // eventListeners
     const eventListeners = () => {
       // hover on ofertas elements
       ofertasInfoContainer1.addEventListener("mouseover", () => {

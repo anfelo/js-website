@@ -1,4 +1,118 @@
+html {
+  font-family: "Open Sans, sans-serif";
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
 input::placeholder {
   opacity: .6;
   /* color: #97979700; */
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto 50px;
+}
+
+header .header-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 200px repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr) 150px;
+  grid-template-areas: 'sideMenu mainMenu mainMenu' 'sideMenu mainMenu mainMenu' 'sideMenu ofertas ofertas' 'sideMenu footer footer';
+  width: 90%;
+  margin: auto;
+  height: 900px;
+}
+
+aside {
+  grid-area: sideMenu;
+  margin-right: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-container {
+  width: 200px;
+}
+
+.logo-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.search-container {
+  display: flex;
+  align-items: stetch;
+}
+
+.search-container input {
+  width: 220px;
+  height: 30px;
+  border: 3px solid green;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  padding: 5px;
+  font-size: .9rem;
+}
+
+.search-container .icon {
+  color: white;
+  font-size: 40px;
+  background-color: green;
+  text-align: center;
+  border-right: 2px solid green;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-container {
+  margin-left: 50px;
+  border-radius: 5px;
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.user-container i {
+  color: cadetblue;
+}
+
+.categories-container {
+  list-style: none;
+}
+
+.category-item {
+  margin-bottom: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.categories-container i {
+  color: seagreen;
+  margin-right: 10px;
 }
